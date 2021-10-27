@@ -48,8 +48,11 @@ hw1
 ![Before](https://github.com/dannygrig/hse21_hw1/blob/main/images/fastqc_per_base_sequence_quality_plot.png)
 #### После
 ![After](https://github.com/dannygrig/hse21_hw1/blob/main/images/trim_fastqc_per_base_sequence_quality_plot.png)
-
-##### Как видно из графиков, уменьшилась длина последовательностей, меньше дупликатов в процентах (из графиков Sequence counts), улучшилась оценка качества по каждой базовой позиции (на графиках Mean Quality scores): значения выше, теперь все в зеленом делении.
+#### До
+![Before](https://github.com/dannygrig/hse21_hw1/blob/main/images/fastqc_adapter_content_plot.png)
+#### После
+![After](https://github.com/dannygrig/hse21_hw1/blob/main/images/trim_fastqc_adapter_content_plot.png)
+##### Как видно из графиков, уменьшилась длина последовательностей, меньше дупликатов в процентах (из графиков Sequence counts), улучшилась оценка качества по каждой базовой позиции (на графиках Mean Quality scores): значения выше, теперь все в зеленом делении, кроме того на последнем графике видно, что были удалены адаптеры.
 
 ### С помощью программы platanus assemble собираем контиги из подрезанных чтений
     
