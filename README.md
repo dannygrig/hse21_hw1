@@ -40,11 +40,16 @@ hw1
     multiqc -o trimmed_multiqc trimmed_fastqc
 
 ### Сравниваем получившиеся данные multiqc по графикам между начальными и подрезанными вариантами
-
+#### До
 ![Before](https://github.com/dannygrig/hse21_hw1/blob/main/images/fastqc_sequence_counts_plot.png)
+#### После
 ![After](https://github.com/dannygrig/hse21_hw1/blob/main/images/trim_fastqc_sequence_counts_plot.png)
+#### До
 ![Before](https://github.com/dannygrig/hse21_hw1/blob/main/images/fastqc_per_base_sequence_quality_plot.png)
+#### После
 ![After](https://github.com/dannygrig/hse21_hw1/blob/main/images/trim_fastqc_per_base_sequence_quality_plot.png)
+
+##### Как видно из графиков, уменьшилась длина последовательностей (из графиков Sequence counts), улучшилась оценка качества по каждой базовой позиции (на графиках Mean Quality scores): значения выше, теперь все в зеленом делении.
 
 ### С помощью программы platanus assemble собираем контиги из подрезанных чтений
     
