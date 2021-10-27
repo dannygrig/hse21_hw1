@@ -17,36 +17,36 @@ hse21_hw1
 
 Используем программы fastqc и multiqc
    
-	  mkdir fastqc
+    mkdir fastqc
     ls *.fq | xargs -P 4 -tI{} fastqc -o fastqc {}
     mkdir multifastqc 
     multiqc -o multiqc fastqc
 
 С помощью platanus подрезаем чтения по качеству и удаляем праймеры
     
-		platanus_trim R1sub.fq R2sub.fq
+    platanus_trim R1sub.fq R2sub.fq
     platanus_internal_trim MPR1sub.fq MPR2sub.fq
 
 Создаем директории и переименовываем подрезанные файлы
     
-		mkdir trimmed_fastq
+    mkdir trimmed_fastq
     mv -v *.fq.* *trimmed trimmed_fastq/
 
 Используем программы fastqc и multiqc для подрезанных файлов
     
-		mkdir trimmed_fastqc
+    mkdir trimmed_fastqc
     ls trimmed_fastq/* | xargs -P 4 -tI{} fastqc -o trimmed_fastqc {}
     mkdir trimmed_multiqc
     multiqc -o trimmed_multiqc trimmed_fastqc
 
 С помощью программы platanus assemble собираем контиги из подрезанных чтений
     
-		time platanus assemble -o Poil -f trimmed_fastq/R1sub.fq.trimmed trimmed_fastq/R2sub.fq.trimmed 2> assemble.log
+    time platanus assemble -o Poil -f trimmed_fastq/R1sub.fq.trimmed trimmed_fastq/R2sub.fq.trimmed 2> assemble.log
 Анализ контигов произведен в Jupiter ноутбуке
 
 С помощью platanus scaffold собираем скаффолды из контигов и из подрезанных чтений
     
-		time platanus scaffold -o Poil -c Poil_contig.fa -IP1 trimmed_fastq/R1sub.fq.trimmed  trimmed_fastq/R2sub.fq.trimmed -OP2 trimmed_fastq/MPR1sub.fq.int_trimmed trimmed_fastq/MPR2sub.fq.int_trimmed 2> scaffold.log
+    time platanus scaffold -o Poil -c Poil_contig.fa -IP1 trimmed_fastq/R1sub.fq.trimmed  trimmed_fastq/R2sub.fq.trimmed -OP2 trimmed_fastq/MPR1sub.fq.int_trimmed trimmed_fastq/MPR2sub.fq.int_trimmed 2> scaffold.log
 Анализ скаффолдов произведен в Jupiter ноутбуке
 
 Применяем программу platanus gap_close для уменьшения количества гэпов
@@ -60,5 +60,5 @@ hse21_hw1
 
 Создаем файл с самым длинным скаффолдом уже после использования platanus gap_close
      
-		echo scaffold1_cov231 > longest_scaffold.txt
+    echo scaffold1_cov231 > longest_scaffold.txt
     seqtk subseq Poil_gapClosed.fa longest_scaffold.txt > gapclosed_longest_scaffold.fa
