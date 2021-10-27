@@ -10,7 +10,7 @@ hse21_hw1
 
 Выбираем случайно 5 миллионов чтений типа paired-end и 1.5 миллиона чтений типа mate-pairs, создаем файлы fastq
     
-		seqtk sample -s723 oil_R1.fastq 5000000 > R1sub.fq
+    seqtk sample -s723 oil_R1.fastq 5000000 > R1sub.fq
     seqtk sample -s723 oil_R2.fastq 5000000 > R2sub.fq
     seqtk sample -s723 oilMP_S4_L001_R1_001.fastq 1500000 > MPR1sub.fq
     seqtk sample -s723 oilMP_S4_L001_R2_001.fastq 1500000 > MPR2sub.fq
