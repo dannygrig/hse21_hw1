@@ -39,6 +39,13 @@ hw1
     mkdir trimmed_multiqc
     multiqc -o trimmed_multiqc trimmed_fastqc
 
+### Сравниваем получившиеся данные multiqc по графикам между начальными и подрезанными вариантами
+
+![Before](https://github.com/dannygrig/hse21_hw1/blob/main/images/fastqc_sequence_counts_plot.png)
+![After](https://github.com/dannygrig/hse21_hw1/blob/main/images/trim_fastqc_sequence_counts_plot.png)
+![Before](https://github.com/dannygrig/hse21_hw1/blob/main/images/fastqc_per_base_sequence_quality_plot.png)
+![After](https://github.com/dannygrig/hse21_hw1/blob/main/images/trim_fastqc_per_base_sequence_quality_plot.png)
+
 ### С помощью программы platanus assemble собираем контиги из подрезанных чтений
     
     time platanus assemble -o Poil -f trimmed_fastq/R1sub.fq.trimmed trimmed_fastq/R2sub.fq.trimmed 2> assemble.log
